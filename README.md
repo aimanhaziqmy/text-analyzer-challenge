@@ -22,7 +22,7 @@ Web Application :
 1. Clone the repository:
 
 ```
-git clone url
+git clone git@github.com:aimanhaziqmy/text-analyzer-challenge.git
 ```
 
 2. Install Dependencies : 
