@@ -49,6 +49,17 @@ describe('useTextAnalysis', () => {
         })
         expect(result.current.analysis.sentiment).toBe('Neutral');
     });
+
+    test('the frequent and the longest word', () => {
+        const { result } = renderHook(() => useTextAnalysis());
+
+        act(() => {
+            result.current.setText('I am very very happy.');
+        })
+        expect(result.current.analysis.mostFrequentWord).toBe('very');
+        expect(result.current.analysis.longestWord).toBe('happy');
+
+    });
     
 });
 
