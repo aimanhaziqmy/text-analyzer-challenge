@@ -1,11 +1,14 @@
 // AboutPage.js
 import React from 'react';
 import './about.css';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import myPicture from '../assets/mypicture.jpg';
 
 const AboutPage = () => {
   return (
     <div className="app">
+      <Header />
       <main className="main-content">
         <div className="about-container">
           <h2>About</h2>
@@ -22,6 +25,7 @@ const AboutPage = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
