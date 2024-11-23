@@ -3,7 +3,7 @@ version: "3.0"
 services:
   text-analyzer-challenge:
     container_name: text-analyzer-challenge
-    image: text-analyzer:latest
+    image: text-analyzer-challenge:latest
     restart: unless-stopped
     ports:
       - "3300:3300"
