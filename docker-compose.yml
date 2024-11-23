@@ -1,0 +1,22 @@
+version: "3.0"
+
+services:
+  text-analyzer-challenge:
+    container_name: text-analyzer-challenge
+    image: text-analyzer:latest
+    restart: unless-stopped
+    ports:
+      - "3300:3300"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.text-analyzer-challenge.entrypoints=web,websecure
+      - traefik.http.routers.text-analyzer-challenge.tls=true
+      - traefik.http.routers.text-analyzer-challenge.tls.certresolver=lets-encrypt
+      - traefik.http.services.text-analyzer-challenge.loadbalancer.server.port=3500
+      - traefik.http.routers.text-analyzer-challenge.rule=Host(`text-analyzer-challenge.aimanhaziq.my`)
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
