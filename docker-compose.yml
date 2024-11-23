@@ -12,7 +12,7 @@ services:
       - traefik.http.routers.text-analyzer-challenge.entrypoints=web,websecure
       - traefik.http.routers.text-analyzer-challenge.tls=true
       - traefik.http.routers.text-analyzer-challenge.tls.certresolver=lets-encrypt
-      - traefik.http.services.text-analyzer-challenge.loadbalancer.server.port=3500
+      - traefik.http.services.text-analyzer-challenge.loadbalancer.server.port=3300
       - traefik.http.routers.text-analyzer-challenge.rule=Host(`text-analyzer-challenge.aimanhaziq.my`)
     networks:
       - web
