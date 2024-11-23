@@ -20,7 +20,6 @@ const AboutPage = () => {
               <p>Name: Aiman Haziq bin Ab Yazik</p>
               <p>Email: aimanhaziqyazik@gmail.com</p>
               <p>Phone: +60103915046</p>
-              <p>Download</p>
             </div>
           </div>
         </div>
