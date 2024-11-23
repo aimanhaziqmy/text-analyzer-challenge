@@ -1,9 +1,12 @@
 import React from 'react';
 import './textAnalyzer.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const TextAnalyzer = () => {
   return (
     <div className="app">
+      <Header />
       <main className="main-content">
         <div className="analyzer-card">
           <div className="download-buttons">
@@ -53,6 +56,7 @@ const TextAnalyzer = () => {
           </div>
         </div>
       </main>
+     <Footer />
     </div>
   );
 };
