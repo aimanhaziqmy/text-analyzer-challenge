@@ -61,8 +61,10 @@ const useTextAnalysis = (initialText = '') => {
     let negativeCount = 0;
 
     words.forEach(word => {
-      if (positiveWords.includes(word)) positiveCount++;
-      if (negativeWords.includes(word)) negativeCount++;
+      // Remove punctuation
+      const cleanWord = word.replace(/[^\w\s]|_/g, "");
+      if (positiveWords.includes(cleanWord)) positiveCount++;
+      if (negativeWords.includes(cleanWord)) negativeCount++;
     });
 
     if (positiveCount > negativeCount) return 'Positive';
@@ -94,7 +96,7 @@ const useTextAnalysis = (initialText = '') => {
     analysis: analysisResult,
     wordFrequencies: wordAnalysis.wordFreq
   };
-  
+
 };
 
 export default useTextAnalysis;
