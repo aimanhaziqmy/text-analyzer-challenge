@@ -14,6 +14,11 @@ const useTextAnalysis = (initialText = '') => {
     sentiment: 'Neutral'
   });
 
+  // Function to remove punctuation from a string
+  function removePunctuation(text) {
+    return text.replace(/[.,!?]/g, '');
+  }
+
 // Memoized word analysis
   const wordAnalysis = useMemo(() => {
     // Trim leading and trailing spaces
@@ -31,7 +36,7 @@ const useTextAnalysis = (initialText = '') => {
       .sort(([,a], [,b]) => b - a)[0]?.[0] || '';
 
     // Find the longest word
-    const longest = words.reduce((a, b) => 
+    const longest = words.map(word =>removePunctuation(word)).reduce((a, b) => 
       (a.length >= b.length ? a : b), '');
 
     return { words, wordFreq, mostFrequent, longest };
@@ -62,7 +67,7 @@ const useTextAnalysis = (initialText = '') => {
 
     words.forEach(word => {
       // Remove punctuation
-      const cleanWord = word.replace(/[^\w\s]|_/g, "");
+      const cleanWord = removePunctuation(word);
       if (positiveWords.includes(cleanWord)) positiveCount++;
       if (negativeWords.includes(cleanWord)) negativeCount++;
     });
